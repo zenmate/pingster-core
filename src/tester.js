@@ -2,9 +2,13 @@ const axios = require('axios');
 const ismatch = require('lodash.ismatch');
 const { mapLimit } = require('async');
 
+const instance = axios.create({
+  headers: { 'User-Agent': 'pingster' }
+});
+
 async function runTest(test) {
   try {
-    const { status, data, headers } = await axios.get(test.url);
+    const { status, data, headers } = await instance.get(test.url);
     let success = true; // if there is no expects and request succeeded - all good ^_^
 
     if (test.expect.status) {
