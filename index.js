@@ -1,5 +1,5 @@
-const tester = require('./tester');
-const parser = require('./parser');
+const tester = require('./src/tester');
+const parser = require('./src/parser');
 
 module.exports = {
   tester,
