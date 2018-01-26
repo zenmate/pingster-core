@@ -49,10 +49,24 @@ try {
   console.error(`Problem opening config: ${e}`);
   return process.exit(1);
 }
-verboseMode && console.log('config:', JSON.stringify(config, null, 2));
 
 const spinner = ora({ color: 'green' });
 spinner.start('Running tests!');
+
+if (allowSnapshots) {
+  const names = Object.keys(config);
+  names.forEach(name => {
+    try {
+      config[name].snapshot = fs.readJSONSync(
+        `${path.join(process.cwd(), '.pingster', 's', name)}`
+      );
+    } catch (e) {
+      // 🤔 well it looks like there is no snapshot
+    }
+  });
+}
+
+verboseMode && console.log('config:', JSON.stringify(config, null, 2));
 
 (async () => {
   try {
@@ -68,7 +82,12 @@ spinner.start('Running tests!');
 
     if (allowSnapshots) {
       const successful = results.filter(x => x.success);
-      successful.forEach(x => fs.outputJson(`${path.join(process.cwd(), '.pingster', 's', x.name)}`, x));
+      successful.forEach(x =>
+        fs.outputJson(
+          `${path.join(process.cwd(), '.pingster', 's', x.name)}`,
+          x
+        )
+      );
     }
   } catch (e) {
     spinner.fail(`Something went wrong! ${e}`);
