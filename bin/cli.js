@@ -61,7 +61,7 @@ if (allowSnapshots) {
         `${path.join(process.cwd(), '.pingster', 's', name)}`
       );
     } catch (e) {
-      // 🤔 well it looks like there is no snapshot
+      // 🤔 well it looks like there is no snapshot, or it's broken
     }
   });
 }
@@ -85,7 +85,7 @@ verboseMode && console.log('config:', JSON.stringify(config, null, 2));
       successful.forEach(x =>
         fs.outputJson(
           `${path.join(process.cwd(), '.pingster', 's', x.name)}`,
-          x
+          x.response
         )
       );
     }
