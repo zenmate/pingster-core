@@ -14,10 +14,12 @@ const optimist = require('optimist')
   .alias('d', 'verbose')
   .alias('h', 'help')
   .alias('v', 'version')
+  .alias('s', 'allow-snapshots')
   .describe('c', 'optional path to config file wtih .yml ext')
   .describe('d', 'enable verbose logging mode')
   .describe('h', 'print help')
-  .describe('v', 'print version');
+  .describe('v', 'print version')
+  .describe('s', 'allow snapshots creation');
 const argv = optimist.argv;
 
 if (argv.help) {
@@ -35,6 +37,7 @@ if (argv.version) {
 }
 
 const verboseMode = argv.verbose;
+const allowSnapshots = argv.s;
 
 const configPath = path.join(process.cwd(), argv.config || './pingster.yml');
 verboseMode && console.log('configPath:', configPath);
@@ -61,6 +64,11 @@ spinner.start('Running tests!');
       spinner.fail(`This tests have failed: ${failed.map(x => x.name).join()}`);
     } else {
       spinner.succeed('All tests have successfully finished!');
+    }
+
+    if (allowSnapshots) {
+      const successful = results.filter(x => x.success);
+      successful.forEach(x => fs.outputJson(`${path.join(process.cwd(), '.pingster', 's', x.name)}`, x));
     }
   } catch (e) {
     spinner.fail(`Something went wrong! ${e}`);
