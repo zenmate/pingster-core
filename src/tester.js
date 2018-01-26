@@ -9,18 +9,22 @@ const instance = axios.create({
 async function runTest(test) {
   try {
     const { status, data, headers } = await instance.get(test.url);
+    const { expect } = test;
+
     let success = true; // if there is no expects and request succeeded - all good ^_^
 
-    if (test.expect.status) {
-      success = success && status === test.expect.status;
-    }
+    if (expect) {
+      if (expect.status) {
+        success = success && status === expect.status;
+      }
 
-    if (test.expect.data) {
-      success = success && ismatch(data, test.expect.data);
-    }
+      if (expect.data) {
+        success = success && ismatch(data, expect.data);
+      }
 
-    if (test.expect.headers) {
-      success = success && ismatch(headers, test.expect.headers);
+      if (expect.headers) {
+        success = success && ismatch(headers, expect.headers);
+      }
     }
 
     return { success, response: { status, data, headers }, ...test };
