@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zenmate/url-deps-check-js.git"
+    "url": "git+https://github.com/zenmate/pingster-core.git"
   },
   "author": "",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/zenmate/url-deps-check-js/issues"
+    "url": "https://github.com/zenmate/pingster-core/issues"
   },
-  "homepage": "https://github.com/zenmate/url-deps-check-js#readme",
+  "homepage": "https://github.com/zenmate/pingster-core#readme",
   "dependencies": {
     "async": "^2.6.0",
     "axios": "^0.17.1",
