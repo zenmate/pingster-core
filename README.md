@@ -93,7 +93,7 @@ httpbin:
 Furthermore you can also easily setup and self-host your own Pingster web service that will run API tests of your projects and show the results in beautiful UI. Here are the apps that will help you:
 
 - [pingster-server](https://github.com/zenmate/pingster-server) - Node.js backend that provides REST API and scheduled Pingster test runner for your GitHub repositories
-- [pingster-ui](https://github.com/zenmate/pingster-ui) - single-page app writen in React that uses [pingster-server](https://github.com/zenmate/pingster-server) API to display test results
+- [pingster-ui](https://github.com/zenmate/pingster-ui) - single-page app writen in React.js that uses [pingster-server](https://github.com/zenmate/pingster-server) API to display test results
 
 ---
 
