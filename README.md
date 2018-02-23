@@ -1,5 +1,7 @@
 # Pingster
 
+[![npm version](https://badge.fury.io/js/pingster.svg)](https://badge.fury.io/js/pingster)
+
 > Never let your APIs down! Pingster is the tool that allows you test any API requests that are used inside your apps and projects. 
 
 ## Install
@@ -87,6 +89,11 @@ httpbin:
 ```
 
 ## Pingster as a Service
+
+Furthermore you can also easily setup and self-host your own Pingster web service that will run API tests of your projects and show the results in beautiful UI. Here are the apps that will help you:
+
+- [pingster-server](https://github.com/zenmate/pingster-server) - Node.js backend that provides REST API and scheduled Pingster test runner for your GitHub repositories
+- [pingster-ui](https://github.com/zenmate/pingster-ui) - single-page app writen in React that uses [pingster-server](https://github.com/zenmate/pingster-server) API to display test results
 
 ---
 

@@ -29,9 +29,21 @@ async function runTest(test) {
       }
     }
 
-    return { success, response: { status, data, headers }, ...test };
+    return {
+      success,
+      response: {
+        status,
+        data,
+        headers
+      },
+      ...test
+    };
   } catch (e) {
-    return { success: false, error: e, ...test };
+    return {
+      success: false,
+      error: e,
+      ...test
+    };
   }
 }
 

@@ -8,13 +8,13 @@ const { loadConfig } = require('../src/parser');
 const tester = require('../src/tester');
 
 const optimist = require('optimist')
-  // .usage('\nUsage: pingster --config ./path/to/config')
+  .usage('\nUsage example: pingster --verbose')
   .alias('c', 'config')
   .alias('d', 'debug')
   .alias('d', 'verbose')
   .alias('h', 'help')
   .alias('v', 'version')
-  .describe('c', 'optional path to config file wtih .yml ext')
+  .describe('c', 'path to config file wtih .yml ext, optional')
   .describe('d', 'enable verbose logging mode')
   .describe('h', 'print help')
   .describe('v', 'print version');
