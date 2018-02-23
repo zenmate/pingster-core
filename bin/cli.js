@@ -27,8 +27,7 @@ if (argv.help) {
 }
 
 if (argv.version) {
-  const version = fs.readJSONSync(path.join(__dirname, '../package.json'))
-    .version;
+  const version = fs.readJSONSync(path.join(__dirname, '../package.json')).version;
 
   console.info(version);
   return;

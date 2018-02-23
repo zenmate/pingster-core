@@ -3,7 +3,9 @@ const ismatch = require('lodash.ismatch');
 const { mapLimit } = require('async');
 
 const instance = axios.create({
-  headers: { 'User-Agent': 'pingster' }
+  headers: {
+    'User-Agent': 'pingster'
+  }
 });
 
 async function runTest(test) {
