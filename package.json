@@ -1,6 +1,6 @@
 {
   "name": "pingster",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Pingster is the tool that allows you test any API requests that are used inside your apps and projects.",
   "main": "./index.js",
   "bin": {
