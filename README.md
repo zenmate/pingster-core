@@ -23,7 +23,7 @@ httpbin:
     status: 200
 ```
 
-Then run Pingser command inside your folder:
+then run command inside your folder:
 
 ```bash
 pingster
